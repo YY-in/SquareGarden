@@ -25,13 +25,12 @@ class _MyStickPageState extends State<MyStackPage>{
     return Scaffold(
         appBar: AppBar(
           title: Text("一米菜园"),
-
           backgroundColor:Color.fromARGB(255, 13, 218, 115) ,
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_shopping_cart_rounded,color: Colors.black,),
+              icon: Icon(Icons.home,color: Colors.black,),
               label: "首页",
               backgroundColor: Color.fromARGB(255, 13, 218, 115),
             ),
