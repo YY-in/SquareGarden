@@ -9,6 +9,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "一米菜园",
+      theme: ThemeData(
+          primarySwatch: Colors.green,
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent
+          ),
       home: MyStackPage(),
     );
   }
@@ -16,41 +21,72 @@ class MyApp extends StatelessWidget {
 
 class MyStackPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _MyStickPageState();
+  State<StatefulWidget> createState() => MyStickPageState();
 }
 
-class _MyStickPageState extends State<MyStackPage>{
+class MyStickPageState extends State<MyStackPage> {
+  var _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("一米菜园"),
-          backgroundColor:Color.fromARGB(255, 13, 218, 115) ,
+      appBar: AppBar(
+        title: Text(
+          "一米菜园",
+          style: TextStyle(color: Colors.green[50]),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home,color: Colors.black,),
-              label: "首页",
-              backgroundColor: Color.fromARGB(255, 13, 218, 115),
+        // backgroundColor: Colors.green[800],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedFontSize: 14,
+        // unselectedItemColor: ,
+        unselectedFontSize: 14,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: <Widget>[
+                Icon(Icons.home),
+                Positioned(
+                  top: 0,
+                  right:0,
+                  child:Container(
+                    // color:Colors.red,
+                    width: 15,
+                    alignment: Alignment(0,0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red
+                    ),
+                    child: Text("7",style:TextStyle(color:Colors.white)),
+                  )
+                
+                )
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search,color: Colors.black,),
-              label: "搜索",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart,color: Colors.black,),
-              label: "购物车",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle,color: Colors.black,),
-              label: "我的",
-            ),
-          ],
-                ),
-        body: Text("Hello World"),
+            label: "首页",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "搜索",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "购物车",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: "我的",
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+      body: Text("Hello World"),
     );
   }
-
 }
-
