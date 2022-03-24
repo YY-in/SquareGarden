@@ -1,16 +1,16 @@
 import "package:flutter/material.dart";
 
 
-class Land extends StatelessWidget {
+class Market extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("家园"),
+        title: Text("集市"),
       ),
       body: Center(
-        child: Text("家园",style: TextStyle(fontSize: 50),),
+        child: Text("集市",style: TextStyle(fontSize: 50),),
       ),
     );
   }

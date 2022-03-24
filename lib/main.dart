@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:square_garden/components/tarbar_item.dart';
+import 'package:square_garden/views/home/home.dart';
+import 'package:square_garden/views/land/land.dart';
+import 'package:square_garden/views/market/market.dart';
+import 'package:square_garden/views/my_page/my_page.dart';
+import 'package:square_garden/views/sprout/sprout.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -25,17 +30,11 @@ class MyStackPage extends StatefulWidget {
 }
 
 class MyStickPageState extends State<MyStackPage> {
-  var _currentIndex = 0;
+  var _currentIndex = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "一米菜园",
-          style: TextStyle(color: Colors.green[50]),
-        ),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedFontSize: 14,
@@ -45,7 +44,7 @@ class MyStickPageState extends State<MyStackPage> {
         items: [
           TabBarItem("land", "家园"),
           TabBarItem("sprout", "种植"),
-          TabBarItem("lemon", "搜索"),
+          TabBarItem("lemon", "主页"),
           TabBarItem("market", "集市"),
           TabBarItem("farmer", "我的"),
         ],
@@ -55,7 +54,16 @@ class MyStickPageState extends State<MyStackPage> {
           });
         },
       ),
-      body: Text("Hello World"),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: <Widget>[
+          Land(),
+          Sprout(),
+          Home(),
+          Market(),
+          MyPage(),
+        ],
+      ),
     );
   }
 }
