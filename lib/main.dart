@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:square_garden/components/tarbar_item.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -12,8 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.green,
           highlightColor: Colors.transparent,
-          splashColor: Colors.transparent
-          ),
+          splashColor: Colors.transparent),
       home: MyStackPage(),
     );
   }
@@ -35,7 +35,6 @@ class MyStickPageState extends State<MyStackPage> {
           "一米菜园",
           style: TextStyle(color: Colors.green[50]),
         ),
-        // backgroundColor: Colors.green[800],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -44,41 +43,11 @@ class MyStickPageState extends State<MyStackPage> {
         unselectedFontSize: 14,
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(
-            icon: Stack(
-              children: <Widget>[
-                Icon(Icons.home),
-                Positioned(
-                  top: 0,
-                  right:0,
-                  child:Container(
-                    // color:Colors.red,
-                    width: 15,
-                    alignment: Alignment(0,0),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red
-                    ),
-                    child: Text("7",style:TextStyle(color:Colors.white)),
-                  )
-                
-                )
-              ],
-            ),
-            label: "首页",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "搜索",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "购物车",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: "我的",
-          ),
+          TabBarItem("land", "家园"),
+          TabBarItem("sprout", "种植"),
+          TabBarItem("lemon", "搜索"),
+          TabBarItem("market", "集市"),
+          TabBarItem("farmer", "我的"),
         ],
         onTap: (index) {
           setState(() {
