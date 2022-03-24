@@ -1,8 +1,14 @@
 import "package:flutter/material.dart";
-import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:square_garden/views/home/home_top_swiper.dart';
+
+
+List<String> imgs = [
+  "https://qiniu.yyin.top/square_foot_gardening.png",
+  "https://qiniu.yyin.top/square_food_gardening2.png",
+  "https://qiniu.yyin.top/20220324235336.png"
+];
 
 class Home extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,13 +16,9 @@ class Home extends StatelessWidget {
         title: Text("一米菜园"),
       ),
       // ignore: unnecessary_new
-      body:  new Swiper(
-        itemBuilder: (BuildContext context,int index){
-          return new Image.network("http://via.placeholder.com/350x150",fit: BoxFit.fill,);
-        },
-        itemCount: 3,
-        pagination: new SwiperPagination(),
-        control: new SwiperControl(),
+      body: Container(
+        height: 150,
+        child: HomeTopSwiper(imgs),
       ),
     );
   }
