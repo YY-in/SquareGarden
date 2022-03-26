@@ -1,16 +1,20 @@
 import "package:flutter/material.dart";
 
+import '../home/timer/TimerWidget.dart';
+class MyPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => MyPageState();
+}
 
-class MyPage extends StatelessWidget {
-
+class MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("我的"),
+        title: Text("动态时钟"),
       ),
-      body: Center(
-        child: Text("我的",style: TextStyle(fontSize: 50),),
+      body: new Center(
+        child: new TimerWidget(),
       ),
     );
   }
