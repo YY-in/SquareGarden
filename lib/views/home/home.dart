@@ -52,10 +52,11 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MaterialButton(
-                color: Colors.blue,
+                color:  Color.fromRGBO(94, 193, 145, 100),
                 child: new Text('蓝牙'),
                 onPressed: () {
                   showModalBottomSheet(
+                    backgroundColor:   Color.fromARGB(156, 40, 255, 151),
                     context: context,
                     builder: (BuildContext context) {
                       return Column(
@@ -67,7 +68,7 @@ class Home extends StatelessWidget {
                             child: TextField(
                               decoration: InputDecoration(
                                   labelText: '蓝牙左手名称：',
-                                  labelStyle: TextStyle(color: Colors.red)),
+                                  labelStyle: TextStyle(color: Colors.green[900])),
                             ),
                           ),
                           Container(
@@ -76,7 +77,7 @@ class Home extends StatelessWidget {
                             child: TextField(
                               decoration: InputDecoration(
                                   labelText: '蓝牙右手名称：',
-                                  labelStyle: TextStyle(color: Colors.red)),
+                                  labelStyle: TextStyle(color: Colors.green[900])),
                             ),
                           ),
                         
@@ -89,10 +90,11 @@ class Home extends StatelessWidget {
                 },
               ),
               MaterialButton(
-                color: Colors.blue,
+                color:  Color.fromRGBO(94, 193, 145, 100),
                 child: new Text('USB串口'),
                 onPressed: () {
                   showModalBottomSheet(
+                    backgroundColor:  Color.fromARGB(156, 40, 255, 151),
                     context: context,
                     builder: (BuildContext context) {
                       return Column(
@@ -103,8 +105,8 @@ class Home extends StatelessWidget {
                             height: 100,
                             child: TextField(
                               decoration: InputDecoration(
-                                  labelText: '蓝牙左手名称：',
-                                  labelStyle: TextStyle(color: Colors.red)),
+                                  labelText: '左手COM名称：',
+                                  labelStyle: TextStyle(color: Colors.green[900])),
                             ),
                           ),
                           Container(
@@ -112,8 +114,8 @@ class Home extends StatelessWidget {
                             height: 100.0,
                             child: TextField(
                               decoration: InputDecoration(
-                                  labelText: '蓝牙右手名称：',
-                                  labelStyle: TextStyle(color: Colors.red)),
+                                  labelText: '右手COM名称：',
+                                  labelStyle: TextStyle(color: Colors.green[900])),
                             ),
                           ),
                         

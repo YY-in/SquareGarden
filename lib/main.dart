@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "一米菜园",
+      title: "触手可及",
       theme: ThemeData(
           primarySwatch: Colors.green,
           highlightColor: Colors.transparent,
@@ -42,11 +42,11 @@ class MyStickPageState extends State<MyStackPage> {
         unselectedFontSize: 14,
         type: BottomNavigationBarType.fixed,
         items: [
-          TabBarItem("land", "家园"),
-          TabBarItem("sprout", "种植"),
-          TabBarItem("lemon", "主页"),
-          TabBarItem("market", "集市"),
-          TabBarItem("farmer", "我的"),
+          TabBarItem("setting","配置"),
+          TabBarItem("gesture","手势"),
+          TabBarItem("module","模块"),
+          TabBarItem("controller","控制"),
+          TabBarItem("farmer","个人"),
         ],
         onTap: (index) {
           setState(() {
@@ -57,9 +57,9 @@ class MyStickPageState extends State<MyStackPage> {
       body: IndexedStack(
         index: _currentIndex,
         children: <Widget>[
+          Home(),
           Land(),
           Sprout(),
-          Home(),
           Market(),
           MyPage(),
         ],
